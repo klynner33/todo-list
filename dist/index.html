@@ -25,8 +25,30 @@
   <div class="content"></div>
 
   <dialog class="add-todo-modal">
-    <p>This is a modal dialog. You can close it by clicking the close button or outside the dialog.</p>
-    <button class="close-modal-button">Close</button>
+    <h1>Add New Task</h1>
+  <form id="todoForm">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" placeholder="Task title" required>
+    
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="4" cols="50" placeholder="A short description" required></textarea>
+    
+    <label for="dueDate">Due Date:</label>
+    <input type="date" id="dueDate" name="dueDate" required>
+    
+    <label for="priority">Priority:</label>
+    <select id="priority" name="priority" required>
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+    
+    <label for="notes">Notes:</label>
+    <textarea id="notes" name="notes" rows="4" cols="50" placeholder="Some notes to remember"></textarea>
+    
+    <button class="add-task-modal-button">Add Task</button>
+    <button class="close-modal-button">Cancel</button>
+  </form>
   </dialog>
 
   <div class="overlay"></div>
