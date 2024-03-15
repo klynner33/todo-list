@@ -31,13 +31,13 @@
     <input type="text" id="title" name="title" placeholder="Task title" required>
     
     <label for="description">Description:</label>
-    <textarea id="description" name="description" rows="4" cols="50" placeholder="A short description" required></textarea>
+    <textarea id="description" name="description" rows="4" cols="50" placeholder="A short description" ></textarea>
     
     <label for="dueDate">Due Date:</label>
-    <input type="date" id="dueDate" name="dueDate" required>
+    <input type="date" id="dueDate" name="dueDate" >
     
     <label for="priority">Priority:</label>
-    <select id="priority" name="priority" required>
+    <select id="priority" name="priority" >
       <option value="low">Low</option>
       <option value="medium">Medium</option>
       <option value="high">High</option>
@@ -46,7 +46,7 @@
     <label for="notes">Notes:</label>
     <textarea id="notes" name="notes" rows="4" cols="50" placeholder="Some notes to remember"></textarea>
     
-    <button class="add-task-modal-button">Add Task</button>
+    <div class="add-task-modal-button">Add Task</div>
     <button class="close-modal-button">Cancel</button>
   </form>
   </dialog>
