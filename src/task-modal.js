@@ -1,5 +1,5 @@
-export function task() {
-  const dialog = document.querySelector('.add-todo-modal');
+export function addTaskModal() {
+const dialog = document.querySelector('.add-todo-modal');
 const openModalButton = document.querySelector('.add-task-button');
 const closeModalButton = document.querySelector('.close-modal-button');
 const overlay = document.querySelector('.overlay');
