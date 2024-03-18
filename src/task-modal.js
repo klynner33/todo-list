@@ -1,4 +1,5 @@
-import { CreateTask } from './create-task';
+import { displayTask } from './display-task';
+import { clearForm } from './clear-form';
 
 export function addTaskModal() {
 const dialog = document.querySelector('.add-todo-modal');
@@ -6,11 +7,7 @@ const openModalButton = document.querySelector('.add-task-button');
 const closeModalButton = document.querySelector('.close-modal-button');
 const overlay = document.querySelector('.overlay');
 const addButton = document.querySelector('.add-task-modal-button')
-const title = document.querySelector('#title');
-const desc = document.querySelector('#description');
-const dueDate = document.querySelector('#dueDate');
-const priority = document.querySelector('#priority');
-const notes = document.querySelector('#notes');
+
 
 openModalButton.addEventListener('click', () => {
   dialog.showModal();
@@ -24,13 +21,12 @@ closeModalButton.addEventListener('click', () => {
 
 addButton.addEventListener("click", () => {
   event.preventDefault();
-  const newTask = new CreateTask(title.value, desc.value, dueDate.value, priority.value, notes.value);
-    newTask.displayTask();
-    title.value = '';
-    desc.value = '';
-    dueDate.value = '';
-    priority.selectedIndex = 0;
-    notes.value = '';
+  displayTask();
+  clearForm();
+  const dialog = document.querySelector('.add-todo-modal');
+  dialog.close();
+  const overlay = document.querySelector('.overlay');
+  overlay.style.display = 'none';
 });
 
 
