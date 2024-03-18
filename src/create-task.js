@@ -10,20 +10,24 @@ export class CreateTask {
   }
 
   displayTask() {
+    event.preventDefault();
+    const taskElement = document.createElement('div');
+    taskElement.innerHTML = `
+        <h2>${this.title}</h2>
+        <p>Description: ${this.description}</p>
+        <p>Due Date: ${this.dueDate}</p>
+        <p>Priority: ${this.priority}</p>
+        <p>Notes: ${this.notes}</p>
+    `;
+    const allTasksContainer = document.querySelector('.all-tasks-container');
+    allTasksContainer.appendChild(taskElement);
+   
     console.log(`${this.title} ${this.description} ${this.dueDate} ${this.priority} ${this.notes}`);
     const dialog = document.querySelector('.add-todo-modal');
     dialog.close();
-    // Element.classList.remove('');
     const overlay = document.querySelector('.overlay');
     overlay.style.display = 'none';
 
   }
 
-  
-
 };
-
-
-
-
-//create a todo with a title, description, due date, completed, 
