@@ -12,6 +12,7 @@ const addButton = document.querySelector('.add-task-modal-button')
 openModalButton.addEventListener('click', () => {
   dialog.showModal();
   overlay.style.display = 'block';
+  clearForm();
 });
 
 closeModalButton.addEventListener('click', () => {
@@ -22,11 +23,11 @@ closeModalButton.addEventListener('click', () => {
 addButton.addEventListener("click", () => {
   event.preventDefault();
   displayTask();
-  clearForm();
   const dialog = document.querySelector('.add-todo-modal');
   dialog.close();
   const overlay = document.querySelector('.overlay');
   overlay.style.display = 'none';
+  
 });
 
 

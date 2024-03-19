@@ -1,20 +1,11 @@
 import { addTaskModal } from './task-modal';
-// import { CreateTask } from './create-task';
 
-// Runs the task modal
 addTaskModal();
 
-// modal elements
-// const addButton = document.querySelector('.add-task-modal-button')
-// const title = document.querySelector('#title');
-// const desc = document.querySelector('#description');
-// const dueDate = document.querySelector('#dueDate');
-// const priority = document.querySelector('#priority');
-// const notes = document.querySelector('#notes');
 
-// addButton.addEventListener("click", () => {
-//   event.preventDefault();
-//   const newTask = new CreateTask(title.value, desc.value, dueDate.value, priority.value, notes.value);
-//     newTask.displayTask();
-// });
 
+//be able to pick which project the task goes into - default goes to 'all tasks'
+//if click 'all tasks', all tasks should show up - all tasks = home screen. show tasks in date order
+//if task is due today, it should show up in 'today'
+//if task is due in the next 7 days, it should show up in 'upcoming'
+//build functionality for 'add project'

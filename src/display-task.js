@@ -8,16 +8,35 @@ export function displayTask() {
   const notes = document.querySelector('#notes');
 
   const newTask = new CreateTask(title.value, desc.value, dueDate.value, priority.value, notes.value);
-  const taskElement = document.createElement('div');
-  taskElement.innerHTML = `
-      <h2>${newTask.title}</h2>
-      <p>Description: ${newTask.description}</p>
-      <p>Due Date: ${newTask.dueDate}</p>
-      <p>Priority: ${newTask.priority}</p>
-      <p>Notes: ${newTask.notes}</p>
-  `;
+  const taskCard = document.createElement('div');
+  taskCard.classList.add('task-card');
   const allTasksContainer = document.querySelector('.all-tasks-container');
-  allTasksContainer.appendChild(taskElement);
+  allTasksContainer.appendChild(taskCard);
+
+  const cardTitle = document.createElement('h2');
+  cardTitle.textContent = `${newTask.title}`;
+  taskCard.appendChild(cardTitle);
+
+  const cardDesc = document.createElement('p');
+  cardDesc.textContent = `Description: ${newTask.description}`;
+  taskCard.appendChild(cardDesc);
+
+  const cardDate = document.createElement('p');
+  cardDate.textContent = `Due Date: ${newTask.dueDate}`;
+  taskCard.appendChild(cardDate);
+
+  const cardPriority = document.createElement('p');
+  cardPriority.textContent = `Priority: ${newTask.priority}`;
+  taskCard.appendChild(cardPriority);
+
+  const cardNotes = document.createElement('p');
+  cardNotes.textContent = `Notes: ${newTask.notes}`;
+  taskCard.appendChild(cardNotes);
  
-  console.log(`${newTask.title} ${newTask.description} ${newTask.dueDate} ${newTask.priority} ${newTask.notes}`);
+  const cardDelete = document.createElement('div');
+  cardDelete.classList.add('delete-button');
+  cardDelete.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;
+  taskCard.appendChild(cardDelete);
+
+  cardDelete.addEventListener('click', () => taskCard.remove());
 }
