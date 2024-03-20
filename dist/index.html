@@ -19,8 +19,10 @@
         <button>All tasks</button>
         <button>Today</button>
         <button>Upcoming</button>
-        <h2>My projects</h2>
-        <button>Add new project</button>
+        <div class="project-buttons-container">
+          <h2 class="my-projects-button">My projects</h2>
+          <i class="fa-solid fa-plus"></i>
+        </div>
       </nav>
     </header>
     <div class="all-tasks-container">
@@ -51,6 +53,23 @@
     
     <button class="add-task-modal-button">Add Task</button>
     <button class="close-modal-button">Cancel</button>
+  </form>
+  </dialog>
+
+  <dialog class="add-project-modal">
+  <form id="project-form">
+    <label for="project-title">Title:</label>
+    <input type="text" id="project-title" name="project-title" placeholder="Project title" required>
+    
+    <label for="project-priority">Priority:</label>
+    <select id="project-priority" name="project-priority" >
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+    
+    <button class="add-project-modal-button">Add project</button>
+    <button class="close-project-modal-button">Cancel</button>
   </form>
   </dialog>
 
