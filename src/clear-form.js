@@ -1,6 +1,6 @@
 
 
-export function clearForm() {
+export function clearTaskForm() {
   const title = document.querySelector('#title');
   const desc = document.querySelector('#description');
   const dueDate = document.querySelector('#dueDate');
@@ -11,4 +11,12 @@ export function clearForm() {
   dueDate.value = '';
   priority.selectedIndex = 0;
   notes.value = '';
+}
+
+
+export function clearProjectForm() {
+  const title = document.querySelector('#project-title');
+  const priority = document.querySelector('#project-priority');
+  title.value = '';
+  priority.selectedIndex = 0;
 }
