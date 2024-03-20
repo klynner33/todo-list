@@ -1,6 +1,8 @@
 import { addTaskModal } from './task-modal';
+import { addProjectModal } from './project-modal';
 
 addTaskModal();
+addProjectModal();
 
 
 
