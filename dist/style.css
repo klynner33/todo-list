@@ -41,12 +41,16 @@ body {
   background-color: var(--background-color);
 }
 
-nav > h2 {
-  font-size: 1.8rem;
-  padding: 10px 7px;
+.add-task-button {
+  color: var(--accent-color);
+  font-weight: bold;
 }
 
-nav > button {
+.my-projects-button {
+  font-size: 1.6rem;
+}
+
+nav > button, .project-buttons-container {
   width: 100%;
   padding: 10px 7px;
   border: none;
@@ -57,12 +61,18 @@ nav > button {
   font-size: 1.6rem;
 }
 
-nav > button:hover {
-  background-color: var(--accent-color);
+nav > button:hover, .project-buttons-container:hover {
+  background-color: var(--secondary-color);
   cursor: pointer;
 }
 
-.add-todo-modal {
+.project-buttons-container {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+
+.add-todo-modal, .add-project-modal {
   width: 300px;
   padding: 20px;
   background-color: #f0f0f0;
