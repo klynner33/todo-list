@@ -1,5 +1,5 @@
 import { displayTask } from './display-task';
-import { clearForm } from './clear-form';
+import { clearTaskForm } from './clear-form';
 
 export function addTaskModal() {
 const dialog = document.querySelector('.add-todo-modal');
@@ -12,12 +12,14 @@ const addButton = document.querySelector('.add-task-modal-button')
 openModalButton.addEventListener('click', () => {
   dialog.showModal();
   overlay.style.display = 'block';
-  clearForm();
+  clearTaskForm();
 });
 
 closeModalButton.addEventListener('click', () => {
+  event.preventDefault();
   dialog.close();
   overlay.style.display = 'none';
+  clearTaskForm();
 });
 
 addButton.addEventListener("click", () => {
