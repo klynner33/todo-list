@@ -50,7 +50,7 @@ body {
   font-size: 1.6rem;
 }
 
-nav > button, .project-buttons-container {
+nav > button, .project-buttons-container, .project-div {
   width: 100%;
   padding: 10px 7px;
   border: none;
@@ -61,7 +61,7 @@ nav > button, .project-buttons-container {
   font-size: 1.6rem;
 }
 
-nav > button:hover, .project-buttons-container:hover {
+nav > button:hover, .project-buttons-container:hover, .project-div:hover {
   background-color: var(--secondary-color);
   cursor: pointer;
 }
@@ -84,6 +84,17 @@ nav > button:hover, .project-buttons-container:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
+}
+
+.project-div {
+  display: flex;
+  gap: 5px;
+}
+
+.project-div > span {
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
 }
 
 .overlay {

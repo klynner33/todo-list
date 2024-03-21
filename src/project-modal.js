@@ -1,3 +1,4 @@
+import { displayProject } from './display-project';
 import { clearProjectForm } from './clear-form';
 
 export function addProjectModal() {
@@ -23,7 +24,7 @@ export function addProjectModal() {
   
   addButton.addEventListener("click", () => {
     event.preventDefault();
-    // displayTask();
+    displayProject();
     const dialog = document.querySelector('.add-project-modal');
     dialog.close();
     const overlay = document.querySelector('.overlay');
