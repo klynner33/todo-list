@@ -11,12 +11,13 @@ export function displayProject() {
   allProjectsContainer.appendChild(projectDiv);
 
   const projectPriority = document.createElement('span');
+  projectPriority.innerHTML = `<i class="fa-solid fa-hashtag"></i>`;
   if(`${newProject.priority}` === 'low') {
-    projectPriority.innerHTML = `<i class="fa-solid fa-hashtag"></i>`;
+    projectPriority.style.color = `#63E6BE`;
   }else if(`${newProject.priority}` === 'medium') {
-    projectPriority.innerHTML = `<i class="fa-solid fa-hashtag"></i>`;
+    projectPriority.style.color = `#FFA500`;
   }else {
-    projectPriority.innerHTML = `<i class="fa-solid fa-hashtag"></i>`;
+    projectPriority.style.color = `#FF0000`;
   }
   projectDiv.appendChild(projectPriority);
 
