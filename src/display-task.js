@@ -40,3 +40,4 @@ export function displayTask() {
 
   cardDelete.addEventListener('click', () => taskCard.remove());
 }
+

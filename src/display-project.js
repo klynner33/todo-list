@@ -25,13 +25,12 @@ export function displayProject() {
   projectTitle.textContent = `${newProject.title}`;
   projectDiv.appendChild(projectTitle);
 
-  
-  
- 
-  // const cardDelete = document.createElement('div');
-  // cardDelete.classList.add('delete-button');
-  // cardDelete.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;
-  // taskCard.appendChild(cardDelete);
+  const projectDelete = document.createElement('div');
+  projectDelete.classList.add('delete-button');
+  projectDelete.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;
+  projectDiv.appendChild(projectDelete);
 
-  // cardDelete.addEventListener('click', () => taskCard.remove());
+  projectDelete.addEventListener('click', () => projectDiv.remove());
+ 
 }
+
