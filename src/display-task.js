@@ -1,6 +1,8 @@
 import { CreateTask } from './create-task';
 
 export function displayTask() {
+  let tasks = [];
+
   const title = document.querySelector('#title');
   const desc = document.querySelector('#description');
   const dueDate = document.querySelector('#dueDate');
@@ -8,6 +10,8 @@ export function displayTask() {
   const notes = document.querySelector('#notes');
 
   const newTask = new CreateTask(title.value, desc.value, dueDate.value, priority.value, notes.value);
+  tasks.push(newTask);
+
   const taskCard = document.createElement('div');
   taskCard.classList.add('task-card');
   const allTasksContainer = document.querySelector('.all-tasks-container');
