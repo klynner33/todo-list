@@ -1,18 +1,21 @@
 import { CreateTask } from './create-task';
+import { format, parseISO } from 'date-fns';
+
+let tasks = [];
 
 export function displayTask() {
-  let tasks = [];
-
   
-
   const title = document.querySelector('#title');
   const desc = document.querySelector('#description');
   const dueDate = document.querySelector('#dueDate');
   const priority = document.querySelector('#priority');
   const notes = document.querySelector('#notes');
 
-const newTask = new CreateTask(title.value, desc.value, dueDate.value, priority.value, notes.value);
-  tasks.push(newTask);
+  // Parse the dueDate string to a Date object using date-fns
+  const parsedDueDate = parseISO(dueDate.value);
+
+  const newTask = new CreateTask(title.value, desc.value, parsedDueDate, priority.value, notes.value);
+    tasks.push(newTask);
 
   // display tasks
   const todoList = document.querySelector('.todo-list');
@@ -30,7 +33,8 @@ const newTask = new CreateTask(title.value, desc.value, dueDate.value, priority.
   // Set content for each element
   titleElement.textContent = `Title: ${task.title}`;
   descriptionElement.textContent = `Description: ${task.description}`;
-  dueDateElement.textContent = `Due Date: ${task.dueDate}`;
+  const formattedDueDate = format(new Date(task.dueDate), 'M/dd/yyyy');
+  dueDateElement.textContent = `Due Date: ${formattedDueDate}`;
   priorityElement.textContent = `Priority: ${task.priority}`;
   notesElement.textContent = `Notes: ${task.notes}`;
   
@@ -57,6 +61,7 @@ const newTask = new CreateTask(title.value, desc.value, dueDate.value, priority.
   deleteButton.addEventListener('click', () => {
     // Remove the parent <li> element when delete button is clicked
     li.remove();
+    
   });
   
   // Append delete button to the li
