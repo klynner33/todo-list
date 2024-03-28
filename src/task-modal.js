@@ -25,9 +25,9 @@ closeModalButton.addEventListener('click', () => {
 addButton.addEventListener("click", () => {
   event.preventDefault();
   displayTask();
-  const dialog = document.querySelector('.add-todo-modal');
+  // const dialog = document.querySelector('.add-todo-modal');
   dialog.close();
-  const overlay = document.querySelector('.overlay');
+  // const overlay = document.querySelector('.overlay');
   overlay.style.display = 'none';
   
 });

@@ -25,6 +25,7 @@ export function displayProject() {
   projectTitle.textContent = `${newProject.title}`;
   projectDiv.appendChild(projectTitle);
 
+  //Delete a project
   const projectDelete = document.createElement('div');
   projectDelete.classList.add('delete-button');
   projectDelete.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;
