@@ -1,4 +1,5 @@
 import { CreateTask } from './create-task';
+import { format, parseISO } from 'date-fns';
 
 export function displayTask() {
   let tasks = [];
@@ -28,7 +29,8 @@ const newTask = new CreateTask(title.value, desc.value, dueDate.value, priority.
   // Set content for each element
   titleElement.textContent = `Title: ${task.title}`;
   descriptionElement.textContent = `Description: ${task.description}`;
-  dueDateElement.textContent = `Due Date: ${task.dueDate}`;
+  const formattedDueDate = format(parseISO(task.dueDate), "MM/dd/yyyy");
+  dueDateElement.textContent = `Due Date: ${formattedDueDate}`;
   priorityElement.textContent = `Priority: ${task.priority}`;
   notesElement.textContent = `Notes: ${task.notes}`;
 

@@ -15,21 +15,20 @@ openModalButton.addEventListener('click', () => {
   clearTaskForm();
 });
 
-closeModalButton.addEventListener('click', () => {
+closeModalButton.addEventListener('click', (event) => {
   event.preventDefault();
   dialog.close();
   overlay.style.display = 'none';
   clearTaskForm();
 });
 
-addButton.addEventListener("click", () => {
+addButton.addEventListener("click", (event) => {
   event.preventDefault();
   displayTask();
   // const dialog = document.querySelector('.add-todo-modal');
   dialog.close();
   // const overlay = document.querySelector('.overlay');
   overlay.style.display = 'none';
-  
 });
 
 
