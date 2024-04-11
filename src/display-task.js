@@ -29,8 +29,12 @@ const newTask = new CreateTask(title.value, desc.value, dueDate.value, priority.
   // Set content for each element
   titleElement.textContent = `Title: ${task.title}`;
   descriptionElement.textContent = `Description: ${task.description}`;
+  if(task.dueDate) {
   const formattedDueDate = format(parseISO(task.dueDate), "MM/dd/yyyy");
   dueDateElement.textContent = `Due Date: ${formattedDueDate}`;
+  }else {
+    dueDateElement.textContent = `Due Date:`;
+  }
   priorityElement.textContent = `Priority: ${task.priority}`;
   notesElement.textContent = `Notes: ${task.notes}`;
 
@@ -53,19 +57,14 @@ const newTask = new CreateTask(title.value, desc.value, dueDate.value, priority.
   deleteButton.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;
   deleteButton.classList.add('delete-button');
 
-  // Add event listener to delete button
   deleteButton.addEventListener('click', () => {
-    // Remove the parent <li> element when delete button is clicked
     li.remove();
   });
 
-  // Append delete button to the li
   li.appendChild(deleteButton);
 
-   // Add class to the li
    li.classList.add('task-item');
 
-   // Append li to ul
   todoList.appendChild(li);
   });
 }
