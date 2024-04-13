@@ -2,7 +2,7 @@ import { CreateTask } from './create-task';
 import { format, parseISO } from 'date-fns';
 
 export function displayTask() {
-  let tasks = [];
+  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
   const title = document.querySelector('#title');
   const desc = document.querySelector('#description');
@@ -13,8 +13,11 @@ export function displayTask() {
 const newTask = new CreateTask(title.value, desc.value, dueDate.value, priority.value, notes.value);
   tasks.push(newTask);
 
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+
   // display tasks
   const todoList = document.querySelector('.todo-list');
+  todoList.innerHTML = '';
 
   tasks.forEach(task => {
     const li = document.createElement('li');
@@ -58,7 +61,9 @@ const newTask = new CreateTask(title.value, desc.value, dueDate.value, priority.
   deleteButton.classList.add('delete-button');
 
   deleteButton.addEventListener('click', () => {
-    li.remove();
+    tasks = tasks.filter(t => t !== task);
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      li.remove();
   });
 
   li.appendChild(deleteButton);
