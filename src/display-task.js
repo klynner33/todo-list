@@ -1,6 +1,8 @@
 import { CreateTask } from './create-task';
 import { format, parseISO } from 'date-fns';
 
+
+
 export function displayTask() {
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
@@ -14,6 +16,7 @@ const newTask = new CreateTask(title.value, desc.value, dueDate.value, priority.
   tasks.push(newTask);
 
   localStorage.setItem('tasks', JSON.stringify(tasks));
+  
 
   // display tasks
   const todoList = document.querySelector('.todo-list');

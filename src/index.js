@@ -1,8 +1,13 @@
 import { addTaskModal } from './task-modal';
 import { addProjectModal } from './project-modal';
+import { displayTask } from './display-task';
 
 addTaskModal();
 addProjectModal();
+
+document.addEventListener('DOMContentLoaded', function() {
+  displayTask();
+});
 
 
 
