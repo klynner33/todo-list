@@ -1,5 +1,7 @@
 import { displayTask } from './display-task';
 import { clearTaskForm } from './clear-form';
+import { taskToLocalStorage } from './local-storage';
+
 
 export function addTaskModal() {
 const dialog = document.querySelector('.add-todo-modal');
@@ -24,6 +26,7 @@ closeModalButton.addEventListener('click', (event) => {
 
 addButton.addEventListener("click", (event) => {
   event.preventDefault();
+  taskToLocalStorage();
   displayTask();
   dialog.close();
   overlay.style.display = 'none';
