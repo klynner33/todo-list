@@ -1,4 +1,4 @@
-import { displayTask } from './display-task';
+import { displayAllTasks } from './display-task';
 import { clearTaskForm } from './clear-form';
 import { taskToLocalStorage } from './local-storage';
 
@@ -27,7 +27,7 @@ closeModalButton.addEventListener('click', (event) => {
 addButton.addEventListener("click", (event) => {
   event.preventDefault();
   taskToLocalStorage();
-  displayTask();
+  displayAllTasks();
   dialog.close();
   overlay.style.display = 'none';
 });

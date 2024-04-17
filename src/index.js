@@ -1,14 +1,13 @@
 import { addTaskModal } from './task-modal';
 import { addProjectModal } from './project-modal';
-import { displayTask } from './display-task';
+import { displayAllTasks, displayTodaysTasks } from './display-task';
 
 addTaskModal();
 addProjectModal();
 
-document.addEventListener('DOMContentLoaded', function() {
-  displayTask();
-});
+document.addEventListener('DOMContentLoaded', displayAllTasks);
 
+document.querySelector('#today-button').addEventListener('click', displayTodaysTasks);
 
 
 //be able to pick which project the task goes into - default goes to 'all tasks'

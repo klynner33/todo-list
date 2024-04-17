@@ -16,9 +16,9 @@
       </div>
       <nav class="nav">
         <button class="add-task-button">Add New Task</button>
-        <button>All Tasks</button>
-        <button>Today</button>
-        <button>Upcoming</button>
+        <button class="all-tasks-button">All Tasks</button>
+        <button id="today-button" class="today-button">Today</button>
+        <button class="upcoming-button">Upcoming</button>
         <div class="project-buttons-container">
           <h2 class="my-projects-button">My projects</h2>
           <i class="fa-solid fa-plus"></i>
@@ -26,61 +26,57 @@
         <div class="all-projects-container"></div>
       </nav>
     </header>
-    <div class="all-tasks-container">
-    </div>
-    <ul class="todo-list">
-      <!-- Tasks will be added dynamically here -->
-    </ul>
+    <div class="all-tasks-container"></div>
+    <div class="today-container"></div>
+    <div class="upcoming-container"></div>
+    <ul class="todo-list"></ul>
   </div>
 
   <dialog class="add-todo-modal">
     <h1>Add New Task</h1>
-  <form id="todo-form">
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="title" placeholder="Task title" required>
-    
-    <label for="description">Description:</label>
-    <textarea id="description" name="description" rows="4" cols="50" placeholder="A short description" ></textarea>
-    
-    <label for="dueDate">Due Date:</label>
-    <input type="date" id="dueDate" name="dueDate" >
-    
-    <label for="priority">Set Priority:</label>
-    <select id="priority" name="priority" >
-      <option value="low">Low</option>
-      <option value="medium">Medium</option>
-      <option value="high">High</option>
-    </select>
-    
-    <label for="notes">Notes:</label>
-    <textarea id="notes" name="notes" rows="4" cols="50" placeholder="Some notes to remember"></textarea>
-    
-    <button class="add-task-modal-button">Add Task</button>
-    <button class="close-modal-button">Cancel</button>
-  </form>
+    <form id="todo-form">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" placeholder="Task title" required>
+      
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" rows="4" cols="50" placeholder="A short description" ></textarea>
+      
+      <label for="dueDate">Due Date:</label>
+      <input type="date" id="dueDate" name="dueDate" >
+      
+      <label for="priority">Set Priority:</label>
+      <select id="priority" name="priority" >
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      
+      <label for="notes">Notes:</label>
+      <textarea id="notes" name="notes" rows="4" cols="50" placeholder="Some notes to remember"></textarea>
+      
+      <button class="add-task-modal-button">Add Task</button>
+      <button class="close-modal-button">Cancel</button>
+    </form>
   </dialog>
 
   <dialog class="add-project-modal">
-  <form id="project-form">
-    <label for="project-title">Title:</label>
-    <input type="text" id="project-title" name="project-title" placeholder="Project title" required>
-    
-    <label for="project-priority">Set Priority:</label>
-    <select id="project-priority" name="project-priority" >
-      <option value="low">Low</option>
-      <option value="medium">Medium</option>
-      <option value="high">High</option>
-    </select>
-    
-    <button class="add-project-modal-button">Add Project</button>
-    <button class="close-project-modal-button">Cancel</button>
-  </form>
+    <form id="project-form">
+      <label for="project-title">Title:</label>
+      <input type="text" id="project-title" name="project-title" placeholder="Project title" required>
+
+      <label for="project-priority">Set Priority:</label>
+      <select id="project-priority" name="project-priority" >
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+
+      <button class="add-project-modal-button">Add Project</button>
+      <button class="close-project-modal-button">Cancel</button>
+    </form>
   </dialog>
 
   <div class="overlay"></div>
-
-  
-
 
   <script src="main.js"></script>
 </body>

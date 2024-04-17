@@ -1,10 +1,9 @@
 // import { CreateTask } from './create-task';
 import { format, parseISO } from 'date-fns';
 
-export function displayTask() {
-  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+export function displayTask(tasks) {
   const todoList = document.querySelector('.todo-list');
-  todoList.innerHTML = '';
+    todoList.innerHTML = '';
 
   tasks.forEach(task => {
     const li = document.createElement('li');
@@ -13,6 +12,7 @@ export function displayTask() {
     const dueDateElement = document.createElement('span');
     const priorityElement = document.createElement('span');
     const notesElement = document.createElement('p');
+
 
     titleElement.textContent = `Title: ${task.title}`;
     descriptionElement.textContent = `Description: ${task.description}`;
@@ -47,28 +47,24 @@ export function displayTask() {
   });
 }
 
-export function displayTodaysTasks() {
-  console.log('test');
+export function displayAllTasks() {
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-  let today = format(new Date(), 'MM-dd-yyyy'); // Formats today's date as MM-DD-YYYY
-  console.log(today)
 
-  // Filter tasks where the dueDate is today
-  let todaysTasks = tasks.filter(task => task.dueDate === today);
-
-  // Assuming you have a div or any container to display tasks
-  const todoList = document.querySelector('.todo-list');
-  todoList.innerHTML = ''; // Clear previous tasks displayed
-
-  // Create elements for each task and append to the container
-  todaysTasks.forEach(task => {
-      let taskElement = document.createElement('li');
-      taskElement.textContent = `Title: ${task.title}, Description: ${task.desc}`;
-      todoList.appendChild(taskElement);
-  });
-
-  if (todaysTasks.length === 0) {
-      todoList.textContent = 'No tasks for today.';
-  }
+  displayTask(tasks);
 }
 
+export function displayTodaysTasks() {
+  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  let today = format(new Date(), 'MM/dd/yyyy');
+
+  let todaysTasks = tasks.filter(task => format(parseISO(task.dueDate), "MM/dd/yyyy") === today);
+  
+  if (todaysTasks.length === 0) {
+      todoList.textContent = 'No tasks for today.';
+  } else{
+    displayTask(todaysTasks);
+  }
+
+
+  
+}
