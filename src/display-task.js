@@ -46,3 +46,29 @@ export function displayTask() {
     todoList.appendChild(li);
   });
 }
+
+export function displayTodaysTasks() {
+  console.log('test');
+  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  let today = format(new Date(), 'MM-dd-yyyy'); // Formats today's date as MM-DD-YYYY
+  console.log(today)
+
+  // Filter tasks where the dueDate is today
+  let todaysTasks = tasks.filter(task => task.dueDate === today);
+
+  // Assuming you have a div or any container to display tasks
+  const todoList = document.querySelector('.todo-list');
+  todoList.innerHTML = ''; // Clear previous tasks displayed
+
+  // Create elements for each task and append to the container
+  todaysTasks.forEach(task => {
+      let taskElement = document.createElement('li');
+      taskElement.textContent = `Title: ${task.title}, Description: ${task.desc}`;
+      todoList.appendChild(taskElement);
+  });
+
+  if (todaysTasks.length === 0) {
+      todoList.textContent = 'No tasks for today.';
+  }
+}
+
