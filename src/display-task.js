@@ -1,5 +1,5 @@
-// import { CreateTask } from './create-task';
-import { format, parseISO } from 'date-fns';
+
+import { format, parseISO, addDays, isWithinInterval } from 'date-fns';
 
 export function displayTask(tasks) {
   const todoList = document.querySelector('.todo-list');
@@ -12,7 +12,6 @@ export function displayTask(tasks) {
     const dueDateElement = document.createElement('span');
     const priorityElement = document.createElement('span');
     const notesElement = document.createElement('p');
-
 
     titleElement.textContent = `Title: ${task.title}`;
     descriptionElement.textContent = `Description: ${task.description}`;
@@ -64,7 +63,22 @@ export function displayTodaysTasks() {
   } else{
     displayTask(todaysTasks);
   }
+}
 
+export function displayUpcomingTasks() {
+  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  let today = new Date();
+  console.log(today);
+  let endDay = addDays(today, 7);
 
-  
+  let upcomingTasks = tasks.filter(task => {
+    let taskDate = parseISO(task.dueDate);
+    return isWithinInterval(taskDate, { start: today, end: endDay });
+  });
+
+  if (upcomingTasks.length === 0) {
+    todoList.textContent = 'No upcoming tasks in the next 7 days.';
+  } else {
+    displayTask(upcomingTasks);
+  }
 }
