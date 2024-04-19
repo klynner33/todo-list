@@ -1,5 +1,5 @@
 import { CreateTask } from './create-task';
-import { format } from 'date-fns';
+import { CreateProject } from './create-project';
 
 export function taskToLocalStorage() {
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -13,5 +13,17 @@ export function taskToLocalStorage() {
   const newTask = new CreateTask(title, desc, dueDate, priority, notes);
   tasks.push(newTask);
   localStorage.setItem('tasks', JSON.stringify(tasks));
+
+}
+
+export function projectToLocalStorage() {
+  let projects = JSON.parse(localStorage.getItem('projects')) || [];
+
+  const title = document.querySelector('#project-title').value;
+  const priority = document.querySelector('#project-priority').value;
+
+  const newProject = new CreateProject(title, priority);
+  projects.push(newProject);
+  localStorage.setItem('projects', JSON.stringify(projects));
 
 }
