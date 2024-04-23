@@ -16,20 +16,20 @@ export function addProjectModal() {
     clearProjectForm();
   });
   
-  closeModalButton.addEventListener('click', () => {
+  closeModalButton.addEventListener('click', (event) => {
     event.preventDefault();
     dialog.close();
     overlay.style.display = 'none';
     clearProjectForm();
   });
   
-  addButton.addEventListener("click", () => {
+  addButton.addEventListener("click", (event) => {
     event.preventDefault();
     projectToLocalStorage();
     displayProject();
-    const dialog = document.querySelector('.add-project-modal');
+    // const dialog = document.querySelector('.add-project-modal');
     dialog.close();
-    const overlay = document.querySelector('.overlay');
+    // const overlay = document.querySelector('.overlay');
     overlay.style.display = 'none';
     
   });

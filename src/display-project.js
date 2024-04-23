@@ -8,24 +8,24 @@ export function displayProject() {
 
     projects.forEach(project => {
       const li = document.createElement('li');
-      const titleElement = document.createElement('span');
       const priorityElement = document.createElement('span');
+      const titleElement = document.createElement('span');
 
-      titleElement.textContent = `${project.title}`;
       priorityElement.innerHTML = `<i class="fa-solid fa-hashtag"></i>`;
-        if(`${newProject.priority}` === 'low') {
-          projectPriority.style.color = `#63E6BE`;
-        }else if(`${newProject.priority}` === 'medium') {
-          projectPriority.style.color = `#FFA500`;
-        }else {
-          projectPriority.style.color = `#FF0000`;
+        if (project.priority === 'low') {
+          priorityElement.style.color = `#63E6BE`;
+        } else if (project.priority === 'medium') {
+          priorityElement.style.color = `#FFA500`;
+        } else {
+          priorityElement.style.color = `#FF0000`;
         }
+      titleElement.textContent = project.title;
 
-      titleElement.classList.add('project-title');
       priorityElement.classList.add('project-priority');
+      titleElement.classList.add('project-title');
 
-      li.appendChild(titleElement);
       li.appendChild(priorityElement);
+      li.appendChild(titleElement);
 
       const deleteButton = document.createElement('button');
         deleteButton.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;
@@ -41,39 +41,6 @@ export function displayProject() {
     projectList.appendChild(li);
     });
 
-    // Fix code below this line
-
-  // const title = document.querySelector('#project-title');
-  // const priority = document.querySelector('#project-priority');
-
-  // const newProject = new CreateProject(title.value, priority.value);
-  // const projectDiv = document.createElement('div');
-  // projectDiv.classList.add('project-div');
-  // const allProjectsContainer = document.querySelector('.all-projects-container');
-  // allProjectsContainer.appendChild(projectDiv);
-
-  // const projectPriority = document.createElement('span');
-  // projectPriority.innerHTML = `<i class="fa-solid fa-hashtag"></i>`;
-  // if(`${newProject.priority}` === 'low') {
-  //   projectPriority.style.color = `#63E6BE`;
-  // }else if(`${newProject.priority}` === 'medium') {
-  //   projectPriority.style.color = `#FFA500`;
-  // }else {
-  //   projectPriority.style.color = `#FF0000`;
-  // }
-  // projectDiv.appendChild(projectPriority);
-
-  // const projectTitle = document.createElement('span');
-  // projectTitle.textContent = `${newProject.title}`;
-  // projectDiv.appendChild(projectTitle);
-
-  //Delete a project
-  // const projectDelete = document.createElement('div');
-  // projectDelete.classList.add('delete-button');
-  // projectDelete.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;
-  // projectDiv.appendChild(projectDelete);
-
-  // projectDelete.addEventListener('click', () => projectDiv.remove());
  
 }
 
