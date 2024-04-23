@@ -1,5 +1,6 @@
 import { displayProject } from './display-project';
 import { clearProjectForm } from './clear-form';
+import { projectToLocalStorage } from './local-storage';
 
 export function addProjectModal() {
   const dialog = document.querySelector('.add-project-modal');
@@ -24,6 +25,7 @@ export function addProjectModal() {
   
   addButton.addEventListener("click", () => {
     event.preventDefault();
+    projectToLocalStorage();
     displayProject();
     const dialog = document.querySelector('.add-project-modal');
     dialog.close();
