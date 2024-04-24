@@ -1,21 +1,31 @@
 import { addTaskModal } from './task-modal';
 import { addProjectModal } from './project-modal';
-import { displayAllTasks, displayTodaysTasks, displayUpcomingTasks } from './display-task';
+import { displayAllTasksPageLoad, displayTodaysTasks, displayUpcomingTasks, displayAllTasks } from './display-task';
+import { displayProject } from './display-project';
 
 addTaskModal();
 addProjectModal();
 
-document.addEventListener('DOMContentLoaded', displayAllTasks);
+document.addEventListener('DOMContentLoaded', displayAllTasksPageLoad);
+document.addEventListener('DOMContentLoaded', displayProject);
 
-document.querySelector('#today-button').addEventListener('click', displayTodaysTasks);
-document.querySelector('#upcoming-button').addEventListener('click', displayUpcomingTasks);
+const allTasksButton = document.querySelector('#all-tasks-button');
+allTasksButton.addEventListener('click', displayAllTasks);
+
+const todayButton = document.querySelector('#today-button');
+todayButton.addEventListener('click', displayTodaysTasks);
+
+const upcomingButton = document.querySelector('#upcoming-button');
+upcomingButton.addEventListener('click', displayUpcomingTasks);
+
 
 
 //be able to pick which project the task goes into - default goes to 'all tasks'
-//if click 'all tasks', all tasks should show up - all tasks = home screen. show tasks in date order
-//if task is due today, it should show up in 'today'
-//have today's tasks show up on initial page load
-//if task is due in the next 7 days, it should show up in 'upcoming'
+//click project title will display tasks for that project
+
+
+//have today's tasks show up on initial page load?
+//if click on 'project', have projects appear in main container?
 //if click on a project, tasks for that project should appear
 //style task modal
 //style project modal

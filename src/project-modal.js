@@ -1,4 +1,4 @@
-import { displayProject } from './display-project';
+import { displayProject, addProjectToDropdown } from './display-project';
 import { clearProjectForm } from './clear-form';
 import { projectToLocalStorage } from './local-storage';
 
@@ -27,9 +27,8 @@ export function addProjectModal() {
     event.preventDefault();
     projectToLocalStorage();
     displayProject();
-    // const dialog = document.querySelector('.add-project-modal');
+    addProjectToDropdown();
     dialog.close();
-    // const overlay = document.querySelector('.overlay');
     overlay.style.display = 'none';
     
   });
