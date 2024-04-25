@@ -1,4 +1,4 @@
-import { displayProject, addProjectToDropdown } from './display-project';
+import { displayProject } from './display-project';
 import { clearProjectForm } from './clear-form';
 import { projectToLocalStorage } from './local-storage';
 
@@ -26,8 +26,7 @@ export function addProjectModal() {
   addButton.addEventListener("click", (event) => {
     event.preventDefault();
     projectToLocalStorage();
-    displayProject();
-    addProjectToDropdown();
+    displayProject()
     dialog.close();
     overlay.style.display = 'none';
     

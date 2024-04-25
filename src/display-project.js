@@ -2,10 +2,26 @@
 export function displayProject() {
   let projects = JSON.parse(localStorage.getItem('projects')) || [];
 
+  let select = document.querySelector('#choose-project');
+    select.innerHTML = "";
+
+  let allTaskOption = document.createElement("option");
+    allTaskOption.text = "All Tasks";
+    allTaskOption.value = "all-tasks";
+    
+    select.appendChild(allTaskOption);
+
   const projectList = document.querySelector('.all-projects-container');
     projectList.innerHTML = '';
 
     projects.forEach(project => {
+
+      let option = document.createElement("option");
+      option.text = project.title;
+      option.value = project.title;
+
+    select.appendChild(option);
+
       const li = document.createElement('li');
       const priorityElement = document.createElement('span');
       const titleElement = document.createElement('span');
@@ -41,24 +57,4 @@ export function displayProject() {
     });
 
  
-}
-
-export function addProjectToDropdown() {
-  let projects = JSON.parse(localStorage.getItem('projects')) || [];
-
-  let select = document.querySelector('#choose-project');
-  select.innerHTML = "";
-
-  let allTaskOption = document.createElement("option");
-    allTaskOption.text = "All Tasks";
-    allTaskOption.value = "all-tasks";
-  select.appendChild(allTaskOption);
-
-  projects.forEach(project => {
-    let option = document.createElement("option");
-      option.text = project.title;
-      option.value = project.title;
-
-    select.appendChild(option);
-  });
 }

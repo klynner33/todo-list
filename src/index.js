@@ -3,11 +3,13 @@ import { addProjectModal } from './project-modal';
 import { displayAllTasksPageLoad, displayTodaysTasks, displayUpcomingTasks, displayAllTasks } from './display-task';
 import { displayProject } from './display-project';
 
-addTaskModal();
-addProjectModal();
+
 
 document.addEventListener('DOMContentLoaded', displayAllTasksPageLoad);
 document.addEventListener('DOMContentLoaded', displayProject);
+
+addTaskModal();
+addProjectModal();
 
 const allTasksButton = document.querySelector('#all-tasks-button');
 allTasksButton.addEventListener('click', displayAllTasks);
@@ -20,7 +22,7 @@ upcomingButton.addEventListener('click', displayUpcomingTasks);
 
 
 
-//be able to pick which project the task goes into - default goes to 'all tasks'
+
 //click project title will display tasks for that project
 
 

@@ -46,6 +46,12 @@ export function displayTask(tasks) {
   });
 }
 
+export function displayAllTasksPageLoad() {
+  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+  displayTask(tasks);
+}
+
 export function displayAllTasks() {
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
@@ -68,7 +74,6 @@ export function displayTodaysTasks() {
 export function displayUpcomingTasks() {
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   let today = new Date();
-  console.log(today);
   let endDay = addDays(today, 7);
 
   let upcomingTasks = tasks.filter(task => {
