@@ -12,24 +12,28 @@ export function displayTask(tasks) {
     const dueDateElement = document.createElement('span');
     const priorityElement = document.createElement('span');
     const notesElement = document.createElement('p');
+    const projectElement = document.createElement('span');
 
     titleElement.textContent = `Title: ${task.title}`;
     descriptionElement.textContent = `Description: ${task.description}`;
     dueDateElement.textContent = `Due Date: ${task.dueDate ? format(parseISO(task.dueDate), "MM/dd/yyyy") : ''}`;
     priorityElement.textContent = `Priority: ${task.priority}`;
     notesElement.textContent = `Notes: ${task.notes}`;
+    projectElement.textContent = `Project: ${task.project}`;
 
     titleElement.classList.add('task-title');
     descriptionElement.classList.add('task-description');
     dueDateElement.classList.add('task-due-date');
     priorityElement.classList.add('task-priority');
     notesElement.classList.add('task-notes');
+    projectElement.classList.add('task-project');
 
     li.appendChild(titleElement);
     li.appendChild(descriptionElement);
     li.appendChild(dueDateElement);
     li.appendChild(priorityElement);
     li.appendChild(notesElement);
+    li.appendChild(projectElement);
 
     const deleteButton = document.createElement('button');
     deleteButton.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;

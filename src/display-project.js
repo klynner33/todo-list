@@ -49,6 +49,7 @@ export function displayProject() {
           projects = projects.filter(p => p !== project);
           localStorage.setItem('projects', JSON.stringify(projects));
         li.remove();
+        option.remove();
     });
 
     li.appendChild(deleteButton);

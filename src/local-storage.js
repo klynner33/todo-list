@@ -9,8 +9,9 @@ export function taskToLocalStorage() {
   const dueDate = document.querySelector('#dueDate').value;
   const priority = document.querySelector('#priority').value;
   const notes = document.querySelector('#notes').value;
+  const project = document.querySelector('#choose-project').value;
 
-  const newTask = new CreateTask(title, desc, dueDate, priority, notes);
+  const newTask = new CreateTask(title, desc, dueDate, priority, notes, project);
   tasks.push(newTask);
   localStorage.setItem('tasks', JSON.stringify(tasks));
 
