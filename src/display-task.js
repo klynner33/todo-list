@@ -65,9 +65,11 @@ export function displayAllTasks() {
 export function displayTodaysTasks() {
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   let today = format(new Date(), 'MM/dd/yyyy');
+  const todoList = document.querySelector('.todo-list');
+  todoList.innerHTML = '';
 
   let todaysTasks = tasks.filter(task => format(parseISO(task.dueDate), "MM/dd/yyyy") === today);
-  
+  console.log(todaysTasks);
   if (todaysTasks.length === 0) {
       todoList.textContent = 'No tasks for today.';
   } else{
@@ -79,6 +81,8 @@ export function displayUpcomingTasks() {
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   let today = new Date();
   let endDay = addDays(today, 7);
+  const todoList = document.querySelector('.todo-list');
+    todoList.innerHTML = '';
 
   let upcomingTasks = tasks.filter(task => {
     let taskDate = parseISO(task.dueDate);
