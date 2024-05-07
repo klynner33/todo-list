@@ -23,11 +23,8 @@ upcomingButton.addEventListener('click', displayUpcomingTasks);
 
 
 
-//click project title will display tasks for that project
-
-
+//click on a project title will display project title and tasks for that project
+//if project is deleted, delete tasks tied to that project
 //have today's tasks show up on initial page load?
-//if click on 'project', have projects appear in main container?
-//if click on a project, tasks for that project should appear
 //style task modal
 //style project modal

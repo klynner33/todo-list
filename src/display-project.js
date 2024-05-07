@@ -1,3 +1,4 @@
+import { displayProjectTasks } from "./display-task";
 
 export function displayProject() {
   let projects = JSON.parse(localStorage.getItem('projects')) || [];
@@ -22,9 +23,9 @@ export function displayProject() {
 
     select.appendChild(option);
 
-      const li = document.createElement('li');
-      const priorityElement = document.createElement('span');
-      const titleElement = document.createElement('span');
+    const li = document.createElement('li');
+    const priorityElement = document.createElement('span');
+    const titleElement = document.createElement('span');
 
       priorityElement.innerHTML = `<i class="fa-solid fa-hashtag"></i>`;
         if (project.priority === 'low') {
@@ -35,6 +36,7 @@ export function displayProject() {
           priorityElement.style.color = `#FF0000`;
         }
       titleElement.textContent = project.title;
+      titleElement.addEventListener('click', displayProjectTasks)
 
       priorityElement.classList.add('project-priority');
       titleElement.classList.add('project-title');
@@ -42,15 +44,15 @@ export function displayProject() {
       li.appendChild(priorityElement);
       li.appendChild(titleElement);
 
-      const deleteButton = document.createElement('button');
-        deleteButton.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;
-        deleteButton.classList.add('delete-button');
-        deleteButton.addEventListener('click', () => {
-          projects = projects.filter(p => p !== project);
-          localStorage.setItem('projects', JSON.stringify(projects));
+    const deleteButton = document.createElement('button');
+      deleteButton.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;
+      deleteButton.classList.add('delete-button');
+      deleteButton.addEventListener('click', () => {
+        projects = projects.filter(p => p !== project);
+        localStorage.setItem('projects', JSON.stringify(projects));
         li.remove();
         option.remove();
-    });
+      });
 
     li.appendChild(deleteButton);
     li.classList.add('project-item');

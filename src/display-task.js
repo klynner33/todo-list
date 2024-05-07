@@ -95,3 +95,16 @@ export function displayUpcomingTasks() {
     displayTask(upcomingTasks);
   }
 }
+
+export function displayProjectTasks() {
+  console.log('testing project buttons');
+  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+   let projectName = this.textContent;
+
+   let projectTasks = tasks.filter(task => {
+     return task.project === projectName;
+   });
+ 
+   displayTask(projectTasks);
+}
