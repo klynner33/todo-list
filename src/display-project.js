@@ -1,4 +1,4 @@
-import { displayProjectTasks } from "./display-task";
+import { displayProjectTasks, displayTask } from "./display-task";
 
 export function displayProject() {
   let projects = JSON.parse(localStorage.getItem('projects')) || [];
@@ -47,11 +47,27 @@ export function displayProject() {
     const deleteButton = document.createElement('button');
       deleteButton.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;
       deleteButton.classList.add('delete-button');
+
+      // let projectName = this.textContent;
+
+      // let projectTasks = tasks.filter(task => {
+      //   return task.project === projectName;
+      // });
+
       deleteButton.addEventListener('click', () => {
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
         projects = projects.filter(p => p !== project);
         localStorage.setItem('projects', JSON.stringify(projects));
         li.remove();
         option.remove();
+        console.log('Project title:', project.title);
+
+        tasks = tasks.filter(task => task.project !== project.title);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        console.log('Tasks after filtering:', tasks);
+        displayTask(tasks);
+
       });
 
     li.appendChild(deleteButton);
