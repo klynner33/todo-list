@@ -61,7 +61,7 @@ nav > button, .project-buttons-container, .project-div {
   font-size: 1.6rem;
 }
 
-nav > button:hover, .project-buttons-container:hover, .project-div:hover {
+nav > button:hover, .project-buttons-container .fa-plus:hover, .project-div:hover {
   background-color: var(--secondary-color);
   cursor: pointer;
 }
@@ -72,15 +72,23 @@ nav > button:hover, .project-buttons-container:hover, .project-div:hover {
   align-items: center;
 }
 
+.project-buttons-container .fa-plus {
+  color: var(--primary-color); 
+  margin-right: 10px;
+  padding: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 .add-todo-modal, .add-project-modal {
-  width: 300px;
+  width: 500px;
   padding: 20px;
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   position: fixed;
-  top: 20%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
@@ -97,6 +105,7 @@ nav > button:hover, .project-buttons-container:hover, .project-div:hover {
   font-size: 1.6rem;
 }
 
+
 .overlay {
   position: fixed;
   top: 0;
@@ -107,4 +116,84 @@ nav > button:hover, .project-buttons-container:hover, .project-div:hover {
   backdrop-filter: blur(2px); /* Apply blur effect */
   z-index: 999; /* Ensure overlay is behind the modal */
   display: none;
+}
+
+.add-todo-modal > form, .add-project-modal > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-todo-modal h1, .add-project-modal h1 {
+  text-align: center;
+}
+
+.input-container, .project-input-container {
+  display: flex;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.input-container > label, .project-input-container > label {
+  width: 40%;
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-container input,
+.input-container textarea,
+.input-container select,
+.input-container button,
+.project-input-container input,
+.project-input-container textarea,
+.project-input-container select,
+.project-input-container button {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-container input:focus,
+.input-container textarea:focus,
+.input-container select:focus,
+.project-input-container input:focus,
+.project-input-container textarea:focus,
+.project-input-container select:focus  {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.add-task-modal-button,
+.close-modal-button,
+.add-project-modal-button,
+.close-project-modal-button {
+  width: auto;
+  padding: 10px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-task-modal-button, .add-project-modal-button {
+  background-color: #31ee80;
+  color: white;
+}
+
+.close-modal-button, .close-project-modal-button {
+  background-color: var(--background-color);
+}
+
+.add-task-modal-button:hover, .add-project-modal-button:hover {
+  background-color: var(--accent-color);
+}
+
+.close-modal-button:hover, .close-project-modal-button:hover {
+  background-color: #d2d2d2;
+}
+
+.input-container textarea, .project-input-container textarea {
+  resize: none;
 }
