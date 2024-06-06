@@ -7,44 +7,57 @@ export function displayTask(tasks) {
 
   tasks.forEach(task => {
     const li = document.createElement('li');
+    const titleDescContainer = document.createElement('div');
+    const taskIconsContainer = document.createElement('div');
+    const taskDetailsContainer = document.createElement('div');
     const titleElement = document.createElement('span');
     const descriptionElement = document.createElement('p');
     const dueDateElement = document.createElement('span');
     const priorityElement = document.createElement('span');
     const notesElement = document.createElement('p');
     const projectElement = document.createElement('span');
+    const expandButton = document.createElement('button');
+    const deleteButton = document.createElement('button');
 
     titleElement.textContent = `Title: ${task.title}`;
     descriptionElement.textContent = `Description: ${task.description}`;
-    dueDateElement.textContent = `Due Date: ${task.dueDate ? format(parseISO(task.dueDate), "MM/dd/yyyy") : ''}`;
-    priorityElement.textContent = `Priority: ${task.priority}`;
-    notesElement.textContent = `Notes: ${task.notes}`;
-    projectElement.textContent = `Project: ${task.project}`;
+    // dueDateElement.textContent = `Due Date: ${task.dueDate ? format(parseISO(task.dueDate), "MM/dd/yyyy") : ''}`;
+    // priorityElement.textContent = `Priority: ${task.priority}`;
+    // notesElement.textContent = `Notes: ${task.notes}`;
+    // projectElement.textContent = `Project: ${task.project}`;
+    expandButton.innerHTML = `<i class="fa-solid fa-chevron-down"></i>`;
+    deleteButton.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;
 
+    titleDescContainer.classList.add('title-desc-container');
+    taskDetailsContainer.classList.add('task-details-container');
+    taskIconsContainer.classList.add('task-icons-container');
     titleElement.classList.add('task-title');
     descriptionElement.classList.add('task-description');
     dueDateElement.classList.add('task-due-date');
     priorityElement.classList.add('task-priority');
     notesElement.classList.add('task-notes');
     projectElement.classList.add('task-project');
-
-    li.appendChild(titleElement);
-    li.appendChild(descriptionElement);
-    li.appendChild(dueDateElement);
-    li.appendChild(priorityElement);
-    li.appendChild(notesElement);
-    li.appendChild(projectElement);
-
-    const deleteButton = document.createElement('button');
-    deleteButton.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;
+    expandButton.classList.add('expand-button');
     deleteButton.classList.add('delete-button');
+
+    li.appendChild(titleDescContainer);
+    li.appendChild(taskDetailsContainer);
+    li.appendChild(taskIconsContainer);
+    titleDescContainer.appendChild(titleElement);
+    titleDescContainer.appendChild(descriptionElement);
+    taskDetailsContainer.appendChild(dueDateElement);
+    taskDetailsContainer.appendChild(priorityElement);
+    taskDetailsContainer.appendChild(notesElement);
+    taskDetailsContainer.appendChild(projectElement);
+    taskIconsContainer.appendChild(expandButton);
+    taskIconsContainer.appendChild(deleteButton);
+
     deleteButton.addEventListener('click', () => {
       tasks = tasks.filter(t => t !== task);
       localStorage.setItem('tasks', JSON.stringify(tasks));
       li.remove();
     });
 
-    li.appendChild(deleteButton);
     li.classList.add('task-item');
     todoList.appendChild(li);
   });
