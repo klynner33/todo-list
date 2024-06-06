@@ -97,7 +97,6 @@ export function displayUpcomingTasks() {
 }
 
 export function displayProjectTasks() {
-  console.log('testing project buttons');
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
    let projectName = this.textContent;

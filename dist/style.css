@@ -12,7 +12,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  /* font-size: 10px; */
 }
 
 body {
@@ -92,7 +91,7 @@ nav > button:hover, .project-buttons-container .fa-plus:hover, .project-div:hove
 }
 
 .delete-button {
-  font-size: 16px;
+  font-size: 12px;
   cursor: pointer;
   transition: transform 0.2s;
   border: none;
@@ -220,3 +219,9 @@ nav > button:hover, .project-buttons-container .fa-plus:hover, .project-div:hove
 .input-container textarea, .project-input-container textarea {
   resize: none;
 }
+
+/* TASK CARD */
+.todo-list li {
+  list-style: none;
+}
+
