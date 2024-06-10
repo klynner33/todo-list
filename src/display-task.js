@@ -58,6 +58,13 @@ export function displayTask(tasks) {
       li.remove();
     });
 
+    expandButton.addEventListener('click', () => {
+      //create modal 
+      //open modal when expand button is clicked
+      //display all task info
+      //be able to close modal
+    })
+
     li.classList.add('task-item');
     todoList.appendChild(li);
   });
