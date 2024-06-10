@@ -18,13 +18,18 @@ export function displayTask(tasks) {
     const projectElement = document.createElement('span');
     const expandButton = document.createElement('button');
     const deleteButton = document.createElement('button');
+    const dialog = document.querySelector('.expand-task-modal');
+    const overlay = document.querySelector('.overlay');
+
+    const expandTitle = document.querySelector('.title-container');
+    const expandDesc = document.querySelector('.description-container');
+    const expandDueDate = document.querySelector('.due-date-container');
+    const expandPriority = document.querySelector('.priority-container');
+    const expandNotes = document.querySelector('.notes-container');
+    const expandProject = document.querySelector('.project-container');
 
     titleElement.textContent = `Title: ${task.title}`;
     descriptionElement.textContent = `Description: ${task.description}`;
-    // dueDateElement.textContent = `Due Date: ${task.dueDate ? format(parseISO(task.dueDate), "MM/dd/yyyy") : ''}`;
-    // priorityElement.textContent = `Priority: ${task.priority}`;
-    // notesElement.textContent = `Notes: ${task.notes}`;
-    // projectElement.textContent = `Project: ${task.project}`;
     expandButton.innerHTML = `<i class="fa-solid fa-chevron-down"></i>`;
     deleteButton.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;
 
@@ -59,16 +64,31 @@ export function displayTask(tasks) {
     });
 
     expandButton.addEventListener('click', () => {
-      //create modal 
-      //open modal when expand button is clicked
-      //display all task info
-      //be able to close modal
+      expandTitle.textContent = `Title: ${task.title}`;
+      expandDesc.textContent = `Description: ${task.description}`;
+      expandDueDate.textContent = `Due Date: ${task.dueDate ? format(parseISO(task.dueDate), "MM/dd/yyyy") : ''}`;
+      expandPriority.textContent = `Priority: ${task.priority}`;
+      expandNotes.textContent = `Notes: ${task.notes}`;
+      expandProject.textContent = `Project: ${task.project}`;
+
+      dialog.showModal();
+      overlay.style.display = 'block';
     })
 
     li.classList.add('task-item');
     todoList.appendChild(li);
   });
 }
+
+const expandClose = document.querySelector('.close-container');
+const dialog = document.querySelector('.expand-task-modal');
+const overlay = document.querySelector('.overlay');
+
+expandClose.addEventListener('click', (event) => {
+  event.preventDefault();
+  dialog.close();
+  overlay.style.display = 'none';
+});
 
 export function displayAllTasksPageLoad() {
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];

@@ -23,8 +23,10 @@ upcomingButton.addEventListener('click', displayUpcomingTasks);
 
 
 
-//click on a project title will display project title and tasks for that project
-//if project is deleted, delete tasks tied to that project
-//have today's tasks show up on initial page load?
-//style task modal
-//style project modal
+
+// have only task title and due date display
+// be able to expand a todo to see its details
+// have today's tasks show up on initial page load?
+// change hover on projects
+// style task modal
+// style project modal
