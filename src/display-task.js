@@ -64,8 +64,8 @@ export function displayTask(tasks) {
     });
 
     expandButton.addEventListener('click', () => {
-      expandTitle.textContent = `Title: ${task.title}`;
-      expandDesc.textContent = `Description: ${task.description}`;
+      expandTitle.textContent = `${task.title}`;
+      expandDesc.textContent = `${task.description}`;
       expandDueDate.textContent = `Due Date: ${task.dueDate ? format(parseISO(task.dueDate), "MM/dd/yyyy") : ''}`;
       expandPriority.textContent = `Priority: ${task.priority}`;
       expandNotes.textContent = `Notes: ${task.notes}`;
