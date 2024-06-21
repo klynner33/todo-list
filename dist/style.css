@@ -102,6 +102,10 @@ nav > button:hover, .project-buttons-container .fa-plus:hover, .project-div:hove
   transform: scale(1.2);
 }
 
+.add-todo-modal {
+  margin-top: 30px;
+}
+
 .add-todo-modal, .add-project-modal, .expand-task-modal {
   width: 500px;
   padding: 20px;
