@@ -28,8 +28,8 @@ export function displayTask(tasks) {
     const expandNotes = document.querySelector('.notes-container');
     const expandProject = document.querySelector('.project-container');
 
-    titleElement.textContent = `Title: ${task.title}`;
-    descriptionElement.textContent = `Description: ${task.description}`;
+    titleElement.textContent = `${task.title}`;
+    descriptionElement.textContent = `${task.description}`;
     expandButton.innerHTML = `<i class="fa-solid fa-chevron-down"></i>`;
     deleteButton.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;
 

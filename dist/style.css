@@ -33,7 +33,7 @@ body {
 .nav {
   display: flex;
   flex-direction: column;
-  border-right: 2px solid var(--secondary-color);
+  border-right: 3px solid var(--accent-color);
   width: 30vw;
   height: 100vh;
   padding: 10px 7px;
@@ -256,7 +256,24 @@ nav > button:hover, .project-buttons-container .fa-plus:hover, .project-div:hove
   list-style: none;
   display: flex;
   justify-content: space-between;
-  border: 1px solid red;
+  align-items: center;
+  border-radius: 8px;
   width: 80%;
+  background-color: var(--secondary-color);
+  padding: 10px 20px;
+  margin-top: 15px;
+}
+
+.task-title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.expand-button, .delete-button {
+  margin: 15px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: transparent;
 }
 
