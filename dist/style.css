@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #3498db;
-  --accent-color: #2ecc71;
+  --primary-color: #2ecc71;
+  --accent-color: #3498db;
   --text-color: #333333;
   --secondary-color: #f1f1f1;
   --background-color: #ffffff;
@@ -33,7 +33,7 @@ body {
 .nav {
   display: flex;
   flex-direction: column;
-  border-right: 3px solid var(--accent-color);
+  border-right: 3px solid var(--primary-color);
   width: 30vw;
   height: 100vh;
   padding: 10px 7px;
@@ -41,7 +41,7 @@ body {
 }
 
 .add-task-button {
-  color: var(--accent-color);
+  color: var(--primary-color);
   font-weight: bold;
   font-size: 20px; 
 }
@@ -118,31 +118,6 @@ nav > button:hover, .project-buttons-container .fa-plus:hover, .project-div:hove
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
-}
-
-.expand-task-modal {
-  border: 4px solid var(--primary-color);
-  border-radius: 8px;
-  line-height: 2;
-}
-
-.close-button-container {
-  display: flex;
-  width: 100%;
-  justify-content: flex-end;
-}
-
-.close-container {
-  padding: 7px 10px;
-  background-color: var(--primary-color);
-  color: var(--background-color);
-  border: none;
-  border-radius: 50%;
-  font-size: 18px;
-}
-
-.close-container:hover {
-  cursor: pointer;
 }
 
 .project-div {
@@ -237,7 +212,7 @@ nav > button:hover, .project-buttons-container .fa-plus:hover, .project-div:hove
 }
 
 .add-task-modal-button:hover, .add-project-modal-button:hover {
-  background-color: var(--accent-color);
+  background-color: var(--primary-color);
 }
 
 .close-modal-button:hover, .close-project-modal-button:hover {
@@ -281,3 +256,34 @@ nav > button:hover, .project-buttons-container .fa-plus:hover, .project-div:hove
   background-color: transparent;
 }
 
+/* EXPANDED TASK CARD */
+
+.expand-task-modal {
+  border: 4px solid var(--primary-color);
+  border-radius: 8px;
+  line-height: 2;
+  background-color: var(--secondary-color);
+}
+
+.close-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-container {
+  width: 30px;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.close-container:hover {
+  cursor: pointer;
+}
+
+.expand-title {
+  font-weight: bold;
+  font-size: 20px;
+}

@@ -44,6 +44,12 @@ export function displayTask(tasks) {
     projectElement.classList.add('task-project');
     expandButton.classList.add('expand-button');
     deleteButton.classList.add('delete-button');
+    expandTitle.classList.add('expand-title');
+    expandDesc.classList.add('expand-description');
+    expandDueDate.classList.add('expand-due-date');
+    expandPriority.classList.add('expand-priority');
+    expandNotes.classList.add('expand-notes');
+    expandProject.classList.add('expand-project');
 
     li.appendChild(titleDescContainer);
     li.appendChild(taskDetailsContainer);
@@ -69,7 +75,7 @@ export function displayTask(tasks) {
       expandDueDate.textContent = `Due Date: ${task.dueDate ? format(parseISO(task.dueDate), "MM/dd/yyyy") : ''}`;
       expandPriority.textContent = `Priority: ${task.priority}`;
       expandNotes.textContent = `Notes: ${task.notes}`;
-      expandProject.textContent = `Project: ${task.project}`;
+      // expandProject.textContent = `Project: ${task.project}`;
 
       dialog.showModal();
       overlay.style.display = 'block';
