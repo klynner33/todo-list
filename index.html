@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/2523133cdd.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css" />
+  <title>ToDo List App</title>
+</head>
+<body>
+  <div class="main-container">
+    <header>
+      <div>
+        <div class="logo"></div>
+        <h1>My ToDo List</h1>
+      </div>
+      <nav class="nav">
+        <button class="add-task-button">Add New Task</button>
+        <button id="all-tasks-button" class="all-tasks-button">All Tasks</button>
+        <button id="today-button" class="today-button">Today</button>
+        <button id="upcoming-button" class="upcoming-button">Upcoming</button>
+        <div class="project-buttons-container">
+          <h2 class="my-projects-button">My projects</h2>
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <ul class="all-projects-container"></ul>
+      </nav>
+    </header>
+    <div class="all-tasks-container"></div>
+    <div class="today-container"></div>
+    <div class="upcoming-container"></div>
+    <ul class="todo-list"></ul>
+  </div>
+
+  <dialog class="add-todo-modal">
+    <h1>Add New Task</h1>
+    <form id="todo-form">
+      <div class="input-container">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" placeholder="Task title" required>
+      </div>
+      
+      <div class="input-container">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" cols="50" placeholder="A short description" ></textarea>
+      </div>
+      
+      <div class="input-container">
+        <label for="dueDate">Due Date:</label>
+        <input type="date" id="dueDate" name="dueDate" >
+      </div>
+      
+      <div class="input-container">
+        <label for="priority">Set Priority:</label>
+        <select id="priority" name="priority" >
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      </div>
+
+      <div class="input-container">
+        <label for="choose-project">Choose Project:</label>
+        <select id="choose-project" name="choose-project" >
+          <!-- <option value="all-tasks-container">All Tasks</option> -->
+        </select>
+      </div>
+      
+      <div class="input-container">
+        <label for="notes">Notes:</label>
+        <textarea id="notes" name="notes" rows="4" cols="50" placeholder="Some notes to remember"></textarea>
+      </div>
+      
+      <div class="input-container">
+        <button class="add-task-modal-button">Add Task</button>
+        <button class="close-modal-button">Cancel</button>
+      </div>
+
+    </form>
+  </dialog>
+
+  <dialog class="add-project-modal">
+    <h1>Add New Project</h1>
+    <form id="project-form">
+      <div class="project-input-container">
+        <label for="project-title">Title:</label>
+        <input type="text" id="project-title" name="project-title" placeholder="Project title" required>
+      </div>
+
+      <div class="project-input-container">
+        <label for="project-priority">Set Priority:</label>
+        <select id="project-priority" name="project-priority" >
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      </div>
+
+      <div class="project-input-container">
+        <button type="submit" class="add-project-modal-button">Add Project</button>
+        <button type="button" class="close-project-modal-button">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="expand-task-modal">
+    <div class="expand-task-container">
+      <div class="close-button-container">
+        <div class="close-container">X</div>
+      </div>
+      <div class="title-container"></div>
+      <div class="description-container"></div>
+      <div class="due-date-container"></div>
+      <div class="priority-container"></div>
+      <div class="notes-container"></div>
+      <div class="project-container"></div>
+    </div>
+  </dialog>
+
+  <div class="overlay"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>

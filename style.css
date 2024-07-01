@@ -1,0 +1,289 @@
+:root {
+  --primary-color: #2ecc71;
+  --accent-color: #3498db;
+  --text-color: #333333;
+  --secondary-color: #f1f1f1;
+  --background-color: #ffffff;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+}
+
+.main-container {
+  display: flex;
+}
+
+ h1 {
+  font-size: 22px;
+  padding: 10px 7px;
+ }
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  border-right: 3px solid var(--primary-color);
+  width: 250px;
+  height: 100vh;
+  padding: 10px 7px;
+  background-color: var(--background-color);
+}
+
+.add-task-button {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 20px; 
+}
+
+.my-projects-button {
+  font-size: 20px;
+}
+
+nav > button, .project-buttons-container, .project-div {
+  width: 100%;
+  padding: 10px 7px;
+  border: none;
+  text-align: left;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+nav > button:hover, .project-buttons-container .fa-plus:hover, .project-div:hover {
+  background-color: var(--secondary-color);
+  cursor: pointer;
+}
+
+.project-buttons-container {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+
+}
+
+.project-buttons-container .fa-plus {
+  color: var(--primary-color); 
+  margin-right: 10px;
+  padding: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #eeeeee;
+}
+
+.project-title {
+  margin: 10px 60px 10px 10px;
+}
+
+.project-title, .fa-hashtag {
+  font-size: 16px;
+}
+
+.delete-button {
+  font-size: 12px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  border: none;
+  outline: none;
+}
+
+.delete-button:hover {
+  transform: scale(1.2);
+}
+
+.add-todo-modal {
+  margin-top: 30px;
+}
+
+.add-todo-modal, .add-project-modal, .expand-task-modal {
+  width: 500px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.project-div {
+  display: flex;
+  gap: 5px;
+}
+
+.project-div > span {
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
+  z-index: 999;
+  display: none;
+}
+
+.add-todo-modal > form, .add-project-modal > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-todo-modal h1, .add-project-modal h1 {
+  text-align: center;
+}
+
+.input-container, .project-input-container {
+  display: flex;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.input-container > label, .project-input-container > label {
+  width: 40%;
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-container input,
+.input-container textarea,
+.input-container select,
+.input-container button,
+.project-input-container input,
+.project-input-container textarea,
+.project-input-container select,
+.project-input-container button {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-container input:focus,
+.input-container textarea:focus,
+.input-container select:focus,
+.project-input-container input:focus,
+.project-input-container textarea:focus,
+.project-input-container select:focus  {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.add-task-modal-button,
+.close-modal-button,
+.add-project-modal-button,
+.close-project-modal-button {
+  width: auto;
+  padding: 10px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-task-modal-button, .add-project-modal-button {
+  background-color: #31ee80;
+  color: white;
+}
+
+.close-modal-button, .close-project-modal-button {
+  background-color: var(--background-color);
+}
+
+.add-task-modal-button:hover, .add-project-modal-button:hover {
+  background-color: var(--primary-color);
+}
+
+.close-modal-button:hover, .close-project-modal-button:hover {
+  background-color: #d2d2d2;
+}
+
+.input-container textarea, .project-input-container textarea {
+  resize: none;
+}
+
+/* TASK CARD */
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.todo-list li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  width: 80%;
+  background-color: var(--secondary-color);
+  padding: 10px 20px;
+  margin-top: 15px;
+}
+
+.task-title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.expand-button, .delete-button {
+  margin: 15px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/* EXPANDED TASK CARD */
+
+.expand-task-modal {
+  border: 4px solid var(--primary-color);
+  border-radius: 8px;
+  line-height: 2;
+  background-color: var(--secondary-color);
+}
+
+.close-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-container {
+  width: 30px;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.close-container:hover {
+  cursor: pointer;
+}
+
+.expand-title {
+  font-weight: bold;
+  font-size: 20px;
+}
