@@ -19,14 +19,3 @@ todayButton.addEventListener('click', displayTodaysTasks);
 
 const upcomingButton = document.querySelector('#upcoming-button');
 upcomingButton.addEventListener('click', displayUpcomingTasks);
-
-
-
-
-
-// have only task title and due date display
-// be able to expand a todo to see its details
-// have today's tasks show up on initial page load?
-// change hover on projects
-// style task modal
-// style project modal

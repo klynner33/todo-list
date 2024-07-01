@@ -34,7 +34,7 @@ body {
   display: flex;
   flex-direction: column;
   border-right: 3px solid var(--primary-color);
-  width: 30vw;
+  width: 250px;
   height: 100vh;
   padding: 10px 7px;
   background-color: var(--background-color);
